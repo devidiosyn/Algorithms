@@ -1,0 +1,27 @@
+<!Doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <script>
+      'use strict';
+      
+      let Arr = [23, 46, 879, 12, 879, 123, 0,-123];
+      let temp;
+
+      console.log(Arr);
+      for(let i =0; i < Arr.length - 1; i++) {
+        for(let j = 0; j < Arr.length - 1; j++) {
+          if(Arr[j + 1] < Arr[j]) {
+            temp = Arr[j];
+            Arr[j] = Arr[j + 1];
+            Arr[j + 1] = temp;
+          }
+        }
+      }
+
+      console.log(Arr);
+    </script>
+  </body>
+</html>
