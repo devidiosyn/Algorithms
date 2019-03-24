@@ -1,0 +1,40 @@
+<!Doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <script>
+      'use strict';
+      
+      const merge = (leftArr, rightArr) => {
+        const resultArr = [];
+        let indexLeft = 0;
+        let indexRight = 0;
+
+        while(indexLeft < leftArr.length && indexRight < rightArr.length) {
+          resultArr.push(
+            (leftArr[indexLeft] < rightArr[indexRight]) ? leftArr[indexLeft++] : rightArr[indexRight++]
+          );
+        }
+
+        return resultArr.concat(leftArr.slice(indexLeft)).concat(rightArr.slice(indexRight));
+      }
+
+      const mergeSort = (arr) => {
+        if(arr.length === 1) return arr;
+
+        const middle = Math.floor(arr.length / 2);
+        const leftArr = arr.slice(0, middle);
+        const rightArr = arr.slice(middle);
+
+        return merge(mergeSort(leftArr), mergeSort(rightArr));
+      }
+
+      const testArr = [23, 123, 4354, 0 , -25, Infinity, 1, 5467, 133];
+      console.log(testArr);
+
+      console.log(mergeSort(testArr));
+    </script>
+  </body>
+</html>
