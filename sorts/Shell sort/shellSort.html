@@ -1,0 +1,37 @@
+<!Doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <script>
+      'use strict';
+
+      const shellSort = (arr) => {
+        let gap = Math.floor(arr.length / 2);
+
+        while(gap >= 1) {
+          for(let i = gap; i < arr.length; i++) {
+            const current = arr[i];
+            let j = i;
+
+            while(j > 0 && arr[j - gap] > current) {
+              arr[j] = arr[i - gap];
+              j-=gap;
+            }
+
+            arr[j] = current;
+          }
+
+          gap = Math.floor(gap / 2);
+        }
+        return arr;
+      }
+
+      const testArr = [3, 0, -5, 12, 50, -100, 23, 500];
+      console.log(testArr);
+
+      console.log(shellSort(testArr));
+    </script>
+  </body>
+</html>
